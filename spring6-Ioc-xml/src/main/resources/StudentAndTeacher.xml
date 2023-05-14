@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean id="teacherOne" class="com.lyq.spring6.iocXml.Teacher">
+        <property name="teacherId" value="10010"/>
+        <property name="teacherName" value="王老师"/>
+    </bean>
+    <bean id="teacherTwo" class="com.lyq.spring6.iocXml.Teacher">
+        <property name="teacherId" value="10086"/>
+        <property name="teacherName" value="孙老师"/>
+    </bean>
+    <bean id="student" class="com.lyq.spring6.iocXml.Student">
+        <property name="studentId" value="100"/>
+        <property name="studentName" value="张三"/>
+        <property name="teacherMap">
+            <map>
+                <entry>
+                    <key>
+                        <value>001</value>
+                    </key>
+                    <ref bean="teacherOne"></ref>
+                </entry>
+                <entry>
+                    <key>
+                        <value>002</value>
+                    </key>
+                    <ref bean="teacherTwo"></ref>
+                </entry>
+            </map>
+        </property>
+    </bean>
+</beans>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/util
+       http://www.springframework.org/schema/util/spring-util.xsd
+       http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean id="student" class="com.lyq.spring6.iocXml.Student">
+        <property name="studentId" value="100"/>
+        <property name="studentName" value="EyeDrop"/>
+        <property name="lessonList" ref="lessonList"/>
+        <property name="teacherMap" ref="teacherMap"/>
+    </bean>
+    <bean id="teacherOne" class="com.lyq.spring6.iocXml.Teacher">
+        <property name="teacherId" value="1000"/>
+        <property name="teacherName" value="苍老师"/>
+    </bean>
+    <bean id="teacherTwo" class="com.lyq.spring6.iocXml.Teacher">
+        <property name="teacherId" value="1001"/>
+        <property name="teacherName" value="悠雅老师"/>
+    </bean>
+    <bean id="lessonOne" class="com.lyq.spring6.iocXml.Lesson">
+        <property name="lessonName" value="后端开发"/>
+    </bean>
+    <bean id="lessonTwo" class="com.lyq.spring6.iocXml.Lesson">
+        <property name="lessonName" value="AI"/>
+    </bean>
+    <util:list id="lessonList">
+        <ref bean="lessonOne"/>
+        <ref bean="lessonTwo"/>
+    </util:list>
+
+    <util:map id="teacherMap">
+        <entry>
+            <key>
+                <value>001</value>
+            </key>
+            <ref bean="teacherOne"></ref>
+        </entry>
+        <entry>
+            <key>
+                <value>002</value>
+            </key>
+            <ref bean="teacherTwo"></ref>
+        </entry>
+    </util:map>
+</beans>
